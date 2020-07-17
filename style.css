@@ -1,22 +1,23 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
 ul#countdown {
   position: relative;
-  margin: 0 auto;
-  padding: 15px 0 20px 0;
-  color: #000;
-  overflow: hidden;
   font-family: 'Arial Narrow', Arial, sans-serif;
+  left: -20px;
 }
 ul#countdown li {
-  margin: 0 10px 0px 10px;
-  padding: 0;
+  margin: 0 10px 0px 0px;
   display: inline-block;
   font-size: 15px;
   text-align: center;
   font-weight: bold;
+  line-height: 15px;
 }
 ul#countdown li .label {
   color: #adafb2;
-  font-size: 12px;
+  font-size: 10px;
   text-transform: uppercase;
-  font-weight: regular;
+  font-weight: 300;
 }
