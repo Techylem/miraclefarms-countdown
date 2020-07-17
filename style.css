@@ -8,13 +8,14 @@ ul#countdown {
   left: -20px;
 }
 ul#countdown li {
-  margin: 0 10px 0px 0px;
+  margin: 0 0px 0px 0px;
   display: inline-block;
   font-size: 15px;
   text-align: center;
   font-weight: bold;
   line-height: 15px;
 }
+
 ul#countdown li .label {
   color: #adafb2;
   font-size: 10px;
