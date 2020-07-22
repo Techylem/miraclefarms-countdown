@@ -2,7 +2,7 @@
  * GLOBAL VARS
  * -------------------------- */
 // The date you want to count down to
-var targetDate = new Date("2020/07/26 00:00:00");   
+var targetDate = new Date("2020/07/26 09:00:00");   
 
 // Other date related variables
 var days;
