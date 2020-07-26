@@ -34,7 +34,7 @@
 	}
 
 	public function lmd_register_class() {
-	   add_option( 'countdown_class', 'This is class option value.');
+	   add_option( 'countdown_class', 'Add Custom Class.');
 	   register_setting( 'lmd_options_class', 'countdown_class' );
 	}
 
@@ -53,7 +53,7 @@
 		  </tr>
 		  <tr valign="top">
 		  	<th scope="row"><label for="countdown_class">Add Custom Class</label></th>
-		  	<td><input type="text" id="countdown_class" name="countdown_class" value="<?php echo get_option('countdown_class'); ?>" /></td>
+		  	<td><input type="text" id="countdown_class" name="countdown_class" placeholder="Add Custom Class" value="<?php echo get_option('countdown_class'); ?>" /></td>
 		  </tr>
 		  </table>
 		  <?php  submit_button(); ?>
@@ -64,7 +64,7 @@
 
 	public function lmd_countdown(){
 		?>
-		<div class="text-center">
+		<div class="text-center <?php echo get_option('countdown_class'); ?>">
 			<span class="h6 pt-1">
 				<?php echo get_option('countdown_title'); ?>
 			</span>
