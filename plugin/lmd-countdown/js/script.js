@@ -13,7 +13,7 @@ var sec;
 /* --------------------------
  * ON DOCUMENT LOAD
  * -------------------------- */
-$(function() {
+jQuery(function() {
    // Calculate time until launch date
    timeToLaunch();
   // Transition the current countdown from 0 
@@ -60,10 +60,10 @@ function countDownTimer(){
     timeToLaunch();
     
     // Write to countdown component
-    $( "#days .number" ).text(days);
-    $( "#hours .number" ).text(hrs);
-    $( "#minutes .number" ).text(min);
-    $( "#seconds .number" ).text(sec);
+    jQuery( "#days .number" ).text(days);
+    jQuery( "#hours .number" ).text(hrs);
+    jQuery( "#minutes .number" ).text(min);
+    jQuery( "#seconds .number" ).text(sec);
     
     // Repeat the check every second
     setTimeout(countDownTimer,1000);
@@ -75,14 +75,14 @@ function countDownTimer(){
  * -------------------------- */
 function numberTransition(id, endPoint, transitionDuration, transitionEase){
   // Transition numbers from 0 to the final number
-  $({numberCount: $(id).text()}).animate({numberCount: endPoint}, {
+  jQuery({numberCount: jQuery(id).text()}).animate({numberCount: endPoint}, {
       duration: transitionDuration,
       easing:transitionEase,
       step: function() {
-        $(id).text(Math.floor(this.numberCount));
+        jQuery(id).text(Math.floor(this.numberCount));
       },
       complete: function() {
-        $(id).text(this.numberCount);
+        jQuery(id).text(this.numberCount);
       }
    }); 
 };
