@@ -14,6 +14,8 @@
 	public function __construct(){
 		add_shortcode('COUNTDOWN', array( $this, 'lmd_countdown' ));
 		add_action('wp_enqueue_scripts', array( $this, 'lmd_enque_styles' ));
+		add_action('admin_menu', array( $this, 'lmd_register_options_page' ));
+		add_action( 'admin_init', array( $this, 'lmd_register_settings' ) );
 	}
 
 	public function lmd_enque_styles(){
@@ -21,11 +23,39 @@
 		wp_enqueue_style( 'custom_style', plugin_dir_url( __FILE__ ) . 'css/style.css' );
 	}
 
+	public function lmd_register_options_page() {
+	  add_options_page('Page Title', 'Coundown Settings', 'manage_options', 'lmd_countdown_settings', array($this, 'myplugin_options_page'));
+	}
+
+	public function lmd_register_settings() {
+	   add_option( 'countdown_title', 'This is my option value.');
+	   register_setting( 'lmd_options_count', 'countdown_title' );
+	}
+
+	public function myplugin_options_page(){
+		?>
+		<div>
+		  <?php screen_icon(); ?>
+		  <h2>Add Countdown Settings</h2>
+		  <form method="post" action="options.php">
+		  <?php settings_fields( 'lmd_options_count' ); ?>
+		  <table>
+		  <tr valign="top">
+		  <th scope="row"><label for="countdown_title">Add Title</label></th>
+		  <td><input type="text" id="countdown_title" name="countdown_title" value="<?php echo get_option('countdown_title'); ?>" /></td>
+		  </tr>
+		  </table>
+		  <?php  submit_button(); ?>
+		  </form>
+		  </div>
+		<?php
+	}
+
 	public function lmd_countdown(){
 		?>
 		<div class="text-center">
 			<span class="h6 pt-1">
-				NEXT HOME DELIVERY CUT OFF
+				<?php echo get_option('countdown_title'); ?>
 			</span>
 			<ul id="countdown">
 				<li id="days">
