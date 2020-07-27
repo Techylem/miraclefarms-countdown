@@ -25,7 +25,7 @@
 	}
 
 	public function lmd_register_options_page() {
-	  add_options_page('Page Title', 'Coundown Settings', 'manage_options', 'lmd_countdown_settings', array($this, 'myplugin_options_page'));
+	  add_options_page('Page Title', 'Coundown Settings', 'manage_options', 'lmd_countdown_settings', array($this, 'lmd_options_page'));
 	}
 
 	public function lmd_register_title() {
@@ -38,7 +38,7 @@
 	   register_setting( 'lmd_options_class', 'countdown_class' );
 	}
 
-	public function myplugin_options_page(){
+	public function lmd_options_page(){
 		?>
 		<div>
 		  <?php screen_icon(); ?>
